@@ -12,22 +12,16 @@ use App\Repositories\CategoryRepository;
 use App\Repositories\TagRepository;
 use App\Repositories\PostRepository;
 
-class AppServiceProvider extends ServiceProvider
+class RepositoryServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
     public function register(): void
     {
-         $this->app->bind(AuthorRepositoryInterface::class, AuthorRepository::class);
+        $this->app->bind(AuthorRepositoryInterface::class, AuthorRepository::class);
         $this->app->bind(CategoryRepositoryInterface::class, CategoryRepository::class);
         $this->app->bind(TagRepositoryInterface::class, TagRepository::class);
         $this->app->bind(PostRepositoryInterface::class, PostRepository::class);
     }
 
-    /**
-     * Bootstrap any application services.
-     */
     public function boot(): void
     {
         //
