@@ -13,7 +13,16 @@ class CategoryService
 
     public function getAllActiveCategories(): Collection
     {
-        return $this->categoryRepository->findActive();
+        // return $this->categoryRepository->findActive();
+        return $this->categoryRepository->findActiveWithPostCount();
+    }
+    
+    public function findActiveWithPostCount(): Collection
+    {
+        return $this->model
+                    ->where('is_active', true)
+                    ->withCount(['posts as post_count'])
+                    ->get();
     }
 
     public function getCategoryBySlug(string $slug): ?Category

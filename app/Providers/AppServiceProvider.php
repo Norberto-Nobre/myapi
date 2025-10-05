@@ -11,6 +11,7 @@ use App\Repositories\AuthorRepository;
 use App\Repositories\CategoryRepository;
 use App\Repositories\TagRepository;
 use App\Repositories\PostRepository;
+use Illuminate\Validation\Rules\Password;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -30,6 +31,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+         Password::defaults(function () {
+        return Password::min(8)
+            ->letters()
+            ->numbers()
+            ->symbols();
+             // verifica se a senha já foi vazada
+    });
     }
 }
