@@ -15,19 +15,19 @@ Route::prefix('v1')->group(function () {
     Route::get('posts/author/{authorId}', [PostController::class, 'byAuthor']);
     Route::get('posts/tag/{tagId}', [PostController::class, 'byTag']);
     Route::get('posts/search', [PostController::class, 'search']);
-    
+
     // Categories
     Route::get('categories', [CategoryController::class, 'index']);
     Route::get('categories/{slug}', [CategoryController::class, 'show']);
-    
+
     // Authors
     Route::get('authors', [AuthorController::class, 'index']);
     Route::get('authors/{id}', [AuthorController::class, 'show']);
-    
+
     // Tags
     Route::get('tags', [TagController::class, 'index']);
     Route::get('tags/{slug}', [TagController::class, 'show']);
-    
+
     // Newsletter
-    Route::post('newsletter', [NewsletterController::class, 'store']);
+    //Route::post('newsletter', [NewsletterController::class, 'store']);
 });
