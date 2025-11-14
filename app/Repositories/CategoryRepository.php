@@ -15,6 +15,14 @@ class CategoryRepository implements CategoryRepositoryInterface
     {
         return $this->model->all();
     }
+    
+     public function findActiveWithPostCount(): Collection
+    {
+        return $this->model
+                    ->where('is_active', true)
+                    ->withCount(['posts as post_count'])
+                    ->get();
+    }
 
     public function findById(int $id): ?Category
     {

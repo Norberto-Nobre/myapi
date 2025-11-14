@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\PostController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\AuthorController;
 use App\Http\Controllers\Api\TagController;
+use App\Http\Controllers\Api\NewsletterController;
 
 Route::prefix('v1')->group(function () {
     // Posts
@@ -26,4 +27,7 @@ Route::prefix('v1')->group(function () {
     // Tags
     Route::get('tags', [TagController::class, 'index']);
     Route::get('tags/{slug}', [TagController::class, 'show']);
+    
+    // Newsletter
+    Route::post('newsletter', [NewsletterController::class, 'store']);
 });
